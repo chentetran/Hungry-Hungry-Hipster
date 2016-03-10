@@ -41,7 +41,7 @@ more of your friends check in at a location, the fewer points you could earn
 from the place. Other factors that influence points for a restaurant include:
 less common food types/ones you haven’t visited yet, “hipster” ambiance on
 Yelp, fewer searches on Google, accessibility to public transportation, etc.
-Electronic mockups of what your team will be developing using wireframes. No 
-hand-drawn mockups accepted. Tools to create wireframes include Balsamiq 
-(commercial; de facto standard), Gliffy, MockFlow, and even Microsoft 
-PowerPoint.
+
+Electronic mockups:
+![Mockup1](/images/mockup1.jpg)
+![Mockup2](/images/mockup2.jpg)
