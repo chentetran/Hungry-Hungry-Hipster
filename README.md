@@ -43,5 +43,5 @@ less common food types/ones you haven’t visited yet, “hipster” ambiance on
 Yelp, fewer searches on Google, accessibility to public transportation, etc.
 
 Electronic mockups:
-![Mockup1](/images/mockup1.jpg)
+![Mockup1](/images/mockup1.png)
 ![Mockup2](/images/mockup2.jpg)
