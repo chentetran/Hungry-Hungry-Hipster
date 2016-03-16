@@ -45,3 +45,7 @@ Yelp, fewer searches on Google, accessibility to public transportation, etc.
 Electronic mockups:
 ![Mockup1](/images/mockup1.png)
 ![Mockup2](/images/mockup2.jpg)
+
+#Comments by Ming
+* How will your team determine what restaurants are "lesser known"?  Your team listed the pick 4 but not what you are going to do with them (i.e., features).  Example of a feature: "Show hipness using charts and graphs".  What third-party APIs or data will your team be using for restaurants?
+* 12 / 15
