@@ -1,0 +1,12 @@
+This is just a written draft of the algorithm; the code will come later. 
+
+Factors to take into account:
+-Number of reviews
+-List of set restaurants (Top100Restaurants.xlsx); if you're on it, you're getting docked
+-Bonus Points if certain tags are present; points removed if other tags are present. All bonuses are forfeit if on the list of top 100 restaurants. Add a factor to increase the bonus (or penalty) if it has multiple bonus (or penalty) tags. Ideas for bonus points: csa, ethnicgrocery, ethnicmarkets, farmersmarket, foodtrucks, internetcafe, kombucha, organic_stores, healthmarkets, streetvendors, vegan, vegetarian. Ideas to remove points: convenience, grocery, tradamerican (slight deduction), italian (slight deduction) cafeteria, hotdogs (tag for fast food).
+
+Sources:
+http://www.yelp-support.com/article/How-are-search-results-ordered?l=en_US
+https://www.yelp.com/developers/documentation/v2/search_api > Response Values; look at category list as well
+http://www.localvisibilitysystem.com/2012/08/23/yelp-ranking-factors/
+http://nrn.com/us-top-100/top-100-chains-us-sales (source of top 100)
