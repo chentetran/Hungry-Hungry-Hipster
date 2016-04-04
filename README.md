@@ -9,7 +9,7 @@ things.
 How do you solve the problem?
 We can solve this problem by gamifying the search for lesser-known restaurants.
 Once at a restaurant of their choice, the user will check in, allowing the
-restaurant they’re in to be determined from their current location; nearby
+restaurant they're in to be determined from their current location; nearby
 restaurants will then be listed in order for the user to specify the correct 
 one. Once the restaurant is determined, we will use a combination of factors
 (Yelp reviews, number of previous check-ins, is it a major chain, etc.) in
