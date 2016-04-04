@@ -4,8 +4,11 @@
 *******************************************************************************
 
 Week's Accomplishments:
-	- 
-
+	- Basic algorithm output (restaurant to hipster number)
+	- Basic Facebook login
+	- Basic Bootstrap for intro pages
+	- Icons/names of awards for different badges
+	
 Challenges and Issues This Week:
 	- 
 
