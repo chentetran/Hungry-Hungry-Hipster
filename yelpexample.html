@@ -62,13 +62,13 @@
                     'parameters' : parameters
                 };
 
-                console.log(JSON.stringify(parameters));
+                // console.log(JSON.stringify(parameters));
 
                 OAuth.setTimestampAndNonce(message);
                 OAuth.SignatureMethod.sign(message, accessor);
 
                 var parameterMap = OAuth.getParameterMap(message.parameters);
-                console.log(parameterMap);
+                // console.log(parameterMap);
 
                 $.ajax({
                     'url' : message.action,
@@ -77,7 +77,6 @@
                     'jsonpCallback' : 'cb',
                     'success' : function(data, textStats, XMLHttpRequest) {
                         console.log(data);
-                        //$("body").append(output);
                     },
                 });
             }
