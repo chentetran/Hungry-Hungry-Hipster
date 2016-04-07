@@ -6,7 +6,7 @@
         <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
         <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
         <script type="text/javascript">
-            var auth = {
+            var yelpAuth = {
                 //
                 // Update with your auth tokens.
                 //
@@ -21,10 +21,10 @@
                 }
             };
 
-            var terms = '';
-            var near = 'Boston';
+            var terms = 'food';
             var latitude;
             var longitude;
+            var max_radius = 1000;
 
             function initialize() {
                 if (navigator.geolocation) {
@@ -43,17 +43,19 @@
             function talkToYelp() {
 
                 var accessor = {
-                    consumerSecret : auth.consumerSecret,
-                    tokenSecret : auth.accessTokenSecret
+                    consumerSecret : yelpAuth.consumerSecret,
+                    tokenSecret : yelpAuth.accessTokenSecret
                 };
                 parameters = [];
                 parameters.push(['term', terms]);
-                // parameters.push(['location', near]);
+                parameters.push(['sort', 1]);
+                parameters.push(['radius_filter', max_radius]);
+                // parameters.push(['limit', 5]);
                 parameters.push(['ll', latitude + "," + longitude]);
                 parameters.push(['callback', 'cb']);
-                parameters.push(['oauth_consumer_key', auth.consumerKey]);
-                parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
-                parameters.push(['oauth_token', auth.accessToken]);
+                parameters.push(['oauth_consumer_key', yelpAuth.consumerKey]);
+                parameters.push(['oauth_consumer_secret', yelpAuth.consumerSecret]);
+                parameters.push(['oauth_token', yelpAuth.accessToken]);
                 parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
 
                 var message = {
@@ -76,7 +78,28 @@
                     'dataType' : 'jsonp',
                     'jsonpCallback' : 'cb',
                     'success' : function(data, textStats, XMLHttpRequest) {
-                        console.log(data);
+                        console.log(data); // debug output
+                        var places = data.businesses;
+                        var averageReviews = 0;
+                        var i = 0;
+                        for (i in places) {
+                            (function (i) {
+                                if (places[i].distance <= max_radius) {
+                                    averageReviews += places[i].review_count;
+                                    if (i < 5) {
+                                        var button = document.createElement("BUTTON");
+                                        var name = places[i].name;
+                                        button.appendChild(document.createTextNode(places[i].name));
+                                        button.onclick = function() {
+                                            alert(JSON.stringify(places[i])); // placeholder output
+                                        };
+                                        document.body.appendChild(button);
+                                    }
+                                }
+                            })(i);
+                        }
+                        averageReviews /= i;
+                        console.log(averageReviews); // debug output
                     },
                 });
             }
