@@ -16,7 +16,6 @@ function algorithm(businesses, checkIn) {
 function base_score(businesses, checkIn) {
   var base = 0;
 
-  //base score hit if on the list of 100 largest restaurants
   var top100 = JSON.parse('top100restaurants.json');
   for (var i = 0; i < top100.length; i++) {
 	if (top100[i]["restaurant"] == checkIn.name) {
@@ -24,9 +23,7 @@ function base_score(businesses, checkIn) {
 	  return base;
   }
 
-  //base score boost if fewer reviews than other nearby restaurants, and vice versa
   var avg_reviews = avgNumReviews(businesses);
-
   if (checkIn.review_count != 0 && avg_reviews != 0) {
     base = 10 / (checkIn.review_count / avg_reviews);
   }
@@ -37,18 +34,46 @@ function base_score(businesses, checkIn) {
   return base;
 }
 
-//
-
-}
-
 function bonus(businesses, checkIn) {
 
 }
 
 function penalty(businesses, checkIn) {
+  var penalty_tags = ["convenience", "grocery", "tradamerican",
+	"italian", "pizza", "chinese", "cafeteria", "hotdogs"];
+  var num_tags = 0;
+  var penalty = 0;
+  
+  for (var i = 0; i < penalty_tags.length; i++) {
+  	for (var j = 0; j < checkIn.categories.length; j++) {
+  	  if (penalty_tags[i] == checkIn.categories[j][1]) {
+  		num_tags += 1;
+  	  }
+  	}
+  }
 
+  if (num_tags == 1) {
+    penalty = 5;
+  }
+  else if (num_tags > 1) {
+  	penalty = 10;
+  }
+
+  if (businesses.length == 1) {
+  	penalty = penalty / 4;
+  }
+
+  //Penalty for visiting the same business twice?
+
+  return penalty;
 }
 
 function avgNumReviews(businesses) {
+  var sum = 0;
+  
+  for (var i = 0; i < businesses.length; i++) {
+	sum += businesses[i].review_count;
+  }
 
+  return sum / businesses.length;
 }

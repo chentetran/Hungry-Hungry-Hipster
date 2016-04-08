@@ -17,6 +17,8 @@ FACTORS:
 BASE SCORE:
 if (on list of 100 chains)
 	base_score = -sqrt(101 - rank on list)
+
+//base score boost if fewer reviews than other nearby restaurants
 else if (number of reviews != 0 && average number of reviews of restaurants in the search area != 0)
 	base_score = 10 / (number of reviews / average number of reviews of restaurants in the search area)
 else
