@@ -71,6 +71,10 @@
     "restaurant":"Chili's Grill & Bar"
   },
   {
+    "rank":14,
+    "restaurant":"Chili's"
+  },
+  {
     "rank":15,
     "restaurant":"Domino's Pizza"
   },
@@ -112,19 +116,35 @@
   },
   {
     "rank":24,
-    "restaurant":"Chipotle Mexican Grill/Chipotle"
+    "restaurant":"Chipotle Mexican Grill"
+  },
+  {
+    "rank":24,
+    "restaurant":"Chipotle"
   },
   {
     "rank":25,
     "restaurant":"Papa John's Pizza"
   },
   {
+    "rank":25,
+    "restaurant":"Papa John's"
+  },
+  {
     "rank":26,
     "restaurant":"Buffalo Wild Wings Grill & Bar"
   },
   {
+    "rank":26,
+    "restaurant":"Buffalo Wild Wings"
+  },
+  {
     "rank":27,
     "restaurant":"Cracker Barrel Old Country Store"
+  },
+  {
+    "rank":27,
+    "restaurant":"Cracker Barrel"
   },
   {
     "rank":28,
@@ -143,6 +163,10 @@
     "restaurant":"Popeyes Louisiana Kitchen"
   },
   {
+    "rank":31,
+    "restaurant":"Popeyes"
+  },
+  {
     "rank":32,
     "restaurant":"Golden Corral"
   },
@@ -159,8 +183,16 @@
     "restaurant":"Disney theme parks, hotels & resorts"
   },
   {
+    "rank":35,
+    "restaurant":"Disney"
+  },
+  {
     "rank":36,
     "restaurant":"Little Caesars Pizza"
+  },
+  {
+    "rank":36,
+    "restaurant":"Little Caesars"
   },
   {
     "rank":37,
@@ -183,8 +215,16 @@
     "restaurant":"Marriott Hotels & Resorts"
   },
   {
+    "rank":41,
+    "restaurant":"Marriott"
+  },
+  {
     "rank":42,
     "restaurant":"Red Robin Gourmet Burgers & Spirits"
+  },
+  {
+    "rank":42,
+    "restaurant":"Red Robin"
   },
   {
     "rank":43,
@@ -207,16 +247,32 @@
     "restaurant":"Bob Evans Restaurants"
   },
   {
+    "rank":47,
+    "restaurant":"Bob Evans"
+  },
+  {
     "rank":48,
     "restaurant":"Five Guys Burgers and Fries"
+  },
+  {
+    "rank":48,
+    "restaurant":"Five Guys"
   },
   {
     "rank":49,
     "restaurant":"P.F. Chang's China Bistro"
   },
   {
+    "rank":49,
+    "restaurant":"P.F. Chang's"
+  },
+  {
     "rank":50,
     "restaurant":"Sheraton Hotels"
+  },
+  {
+    "rank":50,
+    "restaurant":"Sheraton"
   },
   {
     "rank":51,
@@ -235,6 +291,10 @@
     "restaurant":"Quiznos Sub"
   },
   {
+    "rank":54,
+    "restaurant":"Quiznos"
+  },
+  {
     "rank":55,
     "restaurant":"Zaxby's"
   },
@@ -247,6 +307,14 @@
     "restaurant":"Bojangles' Famous Chicken 'n Biscuits"
   },
   {
+    "rank":57,
+    "restaurant":"Bojangles'"
+  },
+  {
+    "rank":57,
+    "restaurant":"Bojangles"
+  },
+  {
     "rank":58,
     "restaurant":"Culver's"
   },
@@ -257,6 +325,10 @@
   {
     "rank":60,
     "restaurant":"Papa Murphy's Take 'N' Bake Pizza"
+  },
+  {
+    "rank":60,
+    "restaurant":"Papa Murphy's"
   },
   {
     "rank":61,
@@ -283,6 +355,10 @@
     "restaurant":"BJ's Restaurant & Brewery"
   },
   {
+    "rank":66,
+    "restaurant":"BJ's Restaurant & Brewhouse"
+  },
+  {
     "rank":67,
     "restaurant":"In-N-Out Burger"
   },
@@ -295,12 +371,20 @@
     "restaurant":"Hyatt Hotels"
   },
   {
+    "rank":69,
+    "restaurant":"Hyatt"
+  },
+  {
     "rank":70,
     "restaurant":"Circle K"
   },
   {
     "rank":71,
     "restaurant":"Friendly's Ice Cream"
+  },
+  {
+    "rank":71,
+    "restaurant":"Friendly's"
   },
   {
     "rank":72,
@@ -327,6 +411,10 @@
     "restaurant":"Krispy Kreme Doughnuts"
   },
   {
+    "rank":77,
+    "restaurant":"Krispy Kreme"
+  },
+  {
     "rank":78,
     "restaurant":"Wawa"
   },
@@ -335,16 +423,28 @@
     "restaurant":"Qdoba Mexican Grill"
   },
   {
+    "rank":79,
+    "restaurant":"Qdoba"
+  },
+  {
     "rank":80,
     "restaurant":"White Castle"
   },
   {
     "rank":81,
-    "restaurant":"CiCi's Pizza"
+    "restaurant":"Cici's Pizza"
+  },
+  {
+    "rank":81,
+    "restaurant":"Cici's"
   },
   {
     "rank":82,
-    "restaurant":"Casey's General Stores"
+    "restaurant":"Casey's General Store"
+  },
+  {
+    "rank":82,
+    "restaurant":"Casey's"
   },
   {
     "rank":83,
@@ -364,11 +464,19 @@
   },
   {
     "rank":87,
-    "restaurant":"Target Cafe (Target Stores)"
+    "restaurant":"Target Cafe"
+  },
+  {
+    "rank":87,
+    "restaurant":"Target"
   },
   {
     "rank":88,
     "restaurant":"Westin Hotels & Resorts"
+  },
+  {
+    "rank":88,
+    "restaurant":"Westin"
   },
   {
     "rank":89,
@@ -391,8 +499,20 @@
     "restaurant":"Einstein Bros. Bagels"
   },
   {
+    "rank":93,
+    "restaurant":"Einstein Brothers Bagels"
+  },
+  {
+    "rank":93,
+    "restaurant":"Einstein Bros"
+  },
+  {
     "rank":94,
     "restaurant":"Captain D's Seafood"
+  },
+  {
+    "rank":94,
+    "restaurant":"Captain D's"
   },
   {
     "rank":95,
@@ -401,6 +521,10 @@
   {
     "rank":96,
     "restaurant":"Sbarro, The Italian Eatery"
+  },
+  {
+    "rank":96,
+    "restaurant":"Sbarro"
   },
   {
     "rank":97,
@@ -412,7 +536,19 @@
   },
   {
     "rank":99,
-    "restaurant":"Big Boy Restaurant & Bakery/Frisch's Big Boy"
+    "restaurant":"Big Boy Restaurant & Bakery"
+  },
+  {
+    "rank":99,
+    "restaurant":"Frisch's Big Boy"
+  },
+  {
+    "rank":99,
+    "restaurant":"Bob's Big Boy"
+  },
+  {
+    "rank":99,
+    "restaurant":"Big Boy"
   },
   {
     "rank":100,
