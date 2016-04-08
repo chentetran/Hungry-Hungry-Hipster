@@ -5,15 +5,18 @@
 //from. This will have to be adjusted to agree with the actual syntax. I'm
 //assuming that checkIn is a business, as described on the Yelp API site.
 
-function algorithm(businesses, checkIn) {
-	var base = base_score(businesses, checkIn);
-	var plus = bonus(businesses, checkIn);
-	var minus = penalty(businesses, checkIn);
+//Also, if businesses is global or something I won't need to pass it every
+//time. I have it in there though, to show what info each function needs.
 
-	return base + plus - minus;
+function algorithm(businesses, checkIn) {
+	var base = base(businesses, checkIn);
+	var bonus = bonus(businesses, checkIn);
+	var penalty = penalty(businesses, checkIn);
+
+	return base + bonus - penalty;
 }
 
-function base_score(businesses, checkIn) {
+function base(businesses, checkIn) {
   var base = 0;
 
   var top100 = JSON.parse('top100restaurants.json');
@@ -35,7 +38,36 @@ function base_score(businesses, checkIn) {
 }
 
 function bonus(businesses, checkIn) {
+  var bonus_tags = ["csa", "ethnicgrocery", "ethnicmarkets", 
+    "farmersmarket", "foodtrucks", "internetcafe", "kombucha",
+    "organic_stores", "healthmarkets", "streetvendors", "vegan", 
+    "vegetarian"];
+  var num_tags = 0;
+  var bonus = 0;
 
+  for (var i = 0; i < bonus_tags.length; i++) {
+    for (var j = 0; j < checkIn.categories.length; j++) {
+  	  if (bonus_tags[i] == checkIn.categories[j][1]) {
+  		num_tags += 1;
+  	  }
+  	}
+  }
+
+  if (num_tags == 1) {
+    bonus = 5;
+  }
+  else if (num_tags == 2) {
+  	bonus = 10;
+  }
+  else if (num_tags > 2) {
+  	bonus = 20;
+  }
+
+  if (checkIn.review_count == 0) {
+  	bonus = bonus * 1.5;
+  }
+
+  return bonus;
 }
 
 function penalty(businesses, checkIn) {
