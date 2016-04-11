@@ -17,3 +17,7 @@ Challenges and Issues This Week:
 Goals for Next Week:
 	- link Yelp findings to algorithm
 	- basic frontend/Bootstrap
+
+#Comments by Ming
+* " Basic algorithm output (restaurant to hipster number) " --cool!  What is the algorithm?  Briefly describe.
+* "Finding time to meet as a group" --welcome to reality.
