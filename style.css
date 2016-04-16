@@ -1,0 +1,103 @@
+@font-face {
+        font-family: Dense;
+        src: url("fonts/dense.otf") format("opentype");
+}
+
+@font-face {
+        font-family: Skinnybastard;
+        src: url("fonts/Skinnybastard.otf") format("opentype");
+}
+
+/*@media (max-width: @screen-xs) {
+    body{background-color: #fff;}
+}*/
+
+html {
+        height: 100%;
+}
+
+body {
+        min-height: 100%;
+        background-color: #524936;
+        background-image: url('interface/background.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        color: #fff;
+        font-family: Dense;
+        font-size: 32px;
+        text-align: center;
+        text-shadow: 1px 1px #29251b;
+}
+
+h1 {
+        font-family: Skinnybastard;
+        font-weight: normal;
+        font-size: 150px;
+        padding: 0px;
+        margin: 0px;
+}
+
+h2 {
+        font-weight: lighter;
+        font-size: 40px;
+        /*margin: 0px;*/
+
+}
+
+button {
+        position:absolute;
+}
+
+.btn {
+        font-size: 32px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid #fff;
+        margin: 5px;
+        text-shadow: 1px 1px #29251b;
+        width: 400px;
+        transition: all 0.4s;
+}
+
+.btn:hover {
+        color: #000;
+        background-color: #fff;
+        text-shadow: none;
+}
+
+.btn:focus {outline:0; color: #aaccaa;}
+
+#loadingindicator {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: scale(3);
+}
+
+.fading {
+        opacity: 0;
+        transition: opacity 1s;
+}
+
+
+/* For loading animation */
+#spoonknife {
+        position: absolute;
+        left: -46px;
+        top: -32px;
+        width: 90px;
+        height: 64px;
+        background-image: url("interface/spoonknife.png");
+        background-size: 100% 100%;
+}
+
+
+@media screen and (max-width: 550px) {
+    h1{font-size: 80px;}
+    .btn{width: 300px;}
+    #loadingindicator{transform: scale(2);}
+}
+
+@media screen and (max-height: 540px) {
+        #loadingindicator{top: 270px;}
+}
