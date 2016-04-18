@@ -18,6 +18,7 @@ var latitude;
 var longitude;
 var max_radius = 1000;
 
+// gets geolocation and sends the data to Yelp using a helper function
 function initialize() {
     document.getElementById("loadingindicator").style.opacity = 1;
     document.getElementById("namediv").style.opacity = 1;
@@ -34,6 +35,8 @@ function initialize() {
     }
 }
 
+// gets nearby restaurants from yelp for the user to select given the user's
+// current location
 function talkToYelp() {
 
     var accessor = {
@@ -58,7 +61,7 @@ function talkToYelp() {
         'parameters' : parameters
     };
 
-    console.log(JSON.stringify(parameters));
+    console.log(JSON.stringify(parameters)); // debug output
 
     OAuth.setTimestampAndNonce(message);
     OAuth.SignatureMethod.sign(message, accessor);
@@ -77,24 +80,10 @@ function talkToYelp() {
             var averageReviews = 0;
             var i = 0;
             for (i in places) {
-                (function (i) {
-                    if (places[i].distance <= max_radius) {
-                        averageReviews += places[i].review_count;
-                        if (i < 5) {
-                            var brTag = document.createElement('br');
-                            var button = document.createElement("BUTTON");
-                            button.className = "btn btn-lg";
-                            button.style.position = 'static';
-                            var name = places[i].name;
-                            button.appendChild(document.createTextNode(places[i].name));
-                            button.onclick = function() {
-                                alert(JSON.stringify(places[i])); // placeholder output
-                            };
-                            document.body.appendChild(button);
-                            document.body.appendChild(brTag);
-                        }
-                    }
-                })(i);
+                if (places[i].distance <= max_radius)
+                    averageReviews += places[i].review_count;
+
+                generateButton(i, places);
             }
             averageReviews /= i;
             console.log(averageReviews); // debug output
@@ -104,4 +93,22 @@ function talkToYelp() {
             setTimeout(function(){ document.getElementById("loadingindicator").hidden = true; }, 1000);
         },
     });
+}
+
+// adds a button to the HTML page
+function generateButton(i, places) {
+        if (i < 5) {
+            var brTag = document.createElement('br');
+            var button = document.createElement("BUTTON");
+            button.className = "btn btn-lg";
+            button.style.position = 'static';
+            var name = places[i].name;
+            button.appendChild(document.createTextNode(places[i].name));
+            button.onclick = function() {
+                console.log(JSON.stringify(places[i])); // placeholder output
+                console.log(algorithm(places, places[i]));
+            };
+            document.getElementById("mainBody").appendChild(button);
+            document.getElementById("mainBody").appendChild(brTag);
+        }
 }

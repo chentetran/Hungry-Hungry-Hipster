@@ -9,17 +9,17 @@
 //time. I have it in there though, to show what info each function needs.
 
 function algorithm(businesses, checkIn) {
-	var base = base(businesses, checkIn);
-	var bonus = bonus(businesses, checkIn);
-	var penalty = penalty(businesses, checkIn);
+	var theBase = base(businesses, checkIn);
+	var theBonus = bonus(businesses, checkIn);
+	var thePenalty = penalty(businesses, checkIn);
 
-	return base + bonus - penalty;
+	return theBase + theBonus - thePenalty;
 }
 
 function base(businesses, checkIn) {
   var base = 0;
 
-  var top100 = JSON.parse('top100restaurants.json');
+  var top100 = JSON.parse('top100restaurants.json'); // DOES NOT WORK
   for (var i = 0; i < top100.length; i++) {
 	if (top100[i]["restaurant"] == checkIn.name) {
 	  base = -Math.sqrt(101 - top100[i]["rank"]);
@@ -35,6 +35,7 @@ function base(businesses, checkIn) {
   }
 
   return base;
+  }
 }
 
 function bonus(businesses, checkIn) {
@@ -52,60 +53,61 @@ function bonus(businesses, checkIn) {
   	  }
   	}
   }
-
-  if (num_tags == 1) {
-    bonus = 5;
-  }
-  else if (num_tags == 2) {
-  	bonus = 10;
-  }
-  else if (num_tags > 2) {
-  	bonus = 20;
-  }
-
-  if (checkIn.review_count == 0) {
-  	bonus = bonus * 1.5;
-  }
-
-  return bonus;
 }
 
-function penalty(businesses, checkIn) {
-  var penalty_tags = ["convenience", "grocery", "tradamerican",
-	"italian", "pizza", "chinese", "cafeteria", "hotdogs"];
-  var num_tags = 0;
-  var penalty = 0;
+//   if (num_tags == 1) {
+//     bonus = 5;
+//   }
+//   else if (num_tags == 2) {
+//   	bonus = 10;
+//   }
+//   else if (num_tags > 2) {
+//   	bonus = 20;
+//   }
+
+//   if (checkIn.review_count == 0) {
+//   	bonus = bonus * 1.5;
+//   }
+
+//   return bonus;
+// }
+
+// function penalty(businesses, checkIn) {
+//   var penalty_tags = ["convenience", "grocery", "tradamerican",
+// 	"italian", "pizza", "chinese", "cafeteria", "hotdogs"];
+//   var num_tags = 0;
+//   var penalty = 0;
   
-  for (var i = 0; i < penalty_tags.length; i++) {
-  	for (var j = 0; j < checkIn.categories.length; j++) {
-  	  if (penalty_tags[i] == checkIn.categories[j][1]) {
-  		num_tags += 1;
-  	  }
-  	}
-  }
+//   for (var i = 0; i < penalty_tags.length; i++) {
+//   	for (var j = 0; j < checkIn.categories.length; j++) {
+//   	  if (penalty_tags[i] == checkIn.categories[j][1]) {
+//   		num_tags += 1;
+//   	  }
+//   	}
+//   }
 
-  if (num_tags == 1) {
-    penalty = 5;
-  }
-  else if (num_tags > 1) {
-  	penalty = 10;
-  }
+//   if (num_tags == 1) {
+//     penalty = 5;
+//   }
+//   else if (num_tags > 1) {
+//   	penalty = 10;
+//   }
 
-  if (businesses.length == 1) {
-  	penalty = penalty / 4;
-  }
+//   if (businesses.length == 1) {
+//   	penalty = penalty / 4;
+//   }
 
-  //Penalty for visiting the same business twice?
+//   //Penalty for visiting the same business twice?
 
-  return penalty;
-}
+//   return penalty;
+// }
 
-function avgNumReviews(businesses) {
-  var sum = 0;
+// function avgNumReviews(businesses) {
+//   var sum = 0;
   
-  for (var i = 0; i < businesses.length; i++) {
-	sum += businesses[i].review_count;
-  }
+//   for (var i = 0; i < businesses.length; i++) {
+// 	sum += businesses[i].review_count;
+//   }
 
-  return sum / businesses.length;
-}
+//   return sum / businesses.length;
+// }
