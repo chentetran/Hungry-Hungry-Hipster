@@ -11,10 +11,6 @@ function algorithm(businesses, checkIn) {
 	var theBonus = bonus(businesses, checkIn);
 	var thePenalty = penalty(businesses, checkIn);
 
-  console.log(theBase);
-  console.log(theBonus);
-  console.log(thePenalty);
-
 	return theBase + theBonus - thePenalty;
 }
 
