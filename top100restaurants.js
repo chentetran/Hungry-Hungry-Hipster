@@ -1,7 +1,7 @@
 //The following site was used to convert the list from CSV to JSON:
 //http://www.convertcsv.com/csv-to-json.htm
 
-[
+var top100 = [
   {
     "rank":1,
     "restaurant":"McDonald's"
@@ -554,4 +554,4 @@
     "rank":100,
     "restaurant":"On the Border Mexican Grill & Cantina"
   }
-]
+];
