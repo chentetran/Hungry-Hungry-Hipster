@@ -18,3 +18,6 @@ Goals for Next Week:
 	- Facebook for login/friends lists
 	- Build database with friends & personal data (each data point of hipster
 	  score, time, person)
+
+#Comments by Ming
+* From your status report 2: " Integrating "top 100 restaurants" => where are you getting the data from?
