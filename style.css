@@ -92,6 +92,26 @@ button {
 }
 
 
+#badge {
+    /*position:absolute;*/
+    /*left: 50%;*/
+    /*width: 500px;*/
+    /*top: 100px;*/
+    text-align: center;
+    transform:rotateY(90deg);
+    transition: all 1s;
+}
+
+#badge img {
+    /*position:absolute;*/
+    width: 384px;
+    height: 384px;
+    /*top: -256px;*/
+    /*left: -256px;*/
+
+}
+
+
 @media screen and (max-width: 550px) {
     h1{font-size: 80px;}
     .btn{width: 300px;}

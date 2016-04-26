@@ -13,7 +13,7 @@ var yelpAuth = {
     }
 };
 
-var terms = 'food';
+var terms = 'coffee';
 var latitude;
 var longitude;
 var max_radius = 1000;
@@ -22,6 +22,7 @@ var max_radius = 1000;
 function initialize() {
     document.getElementById("loadingindicator").style.opacity = 1;
     document.getElementById("namediv").style.opacity = 1;
+    // document.getElementById("badge").hidden = true;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
                 // myLocation = position.coords;
@@ -61,7 +62,7 @@ function talkToYelp() {
         'parameters' : parameters
     };
 
-    console.log(JSON.stringify(parameters)); // debug output
+    // console.log(JSON.stringify(parameters)); // debug output
 
     OAuth.setTimestampAndNonce(message);
     OAuth.SignatureMethod.sign(message, accessor);
@@ -75,7 +76,7 @@ function talkToYelp() {
         'dataType' : 'jsonp',
         'jsonpCallback' : 'cb',
         'success' : function(data, textStats, XMLHttpRequest) {
-            console.log(data); // debug output
+            // console.log(data); // debug output
             var places = data.businesses;
             var averageReviews = 0;
             var i = 0;
@@ -86,7 +87,7 @@ function talkToYelp() {
                 generateButton(i, places);
             }
             averageReviews /= i;
-            console.log(averageReviews); // debug output
+            // console.log(averageReviews); // debug output
 
             document.getElementById("loadingindicator").style.opacity = 0;
             document.getElementById("mainBody").style.opacity = 1;
@@ -105,10 +106,40 @@ function generateButton(i, places) {
             var name = places[i].name;
             button.appendChild(document.createTextNode(places[i].name));
             button.onclick = function() {
-                console.log(JSON.stringify(places[i])); // placeholder output
-                console.log(algorithm(places, places[i]));
+                calculateScore(algorithm(places, places[i]));
             };
             document.getElementById("mainBody").appendChild(button);
             document.getElementById("mainBody").appendChild(brTag);
         }
+}
+
+
+function calculateScore(score) {
+    document.getElementById("mainBody").style.opacity = 0;
+    document.getElementById("badge").hidden = false;
+    setTimeout(function(){
+        document.getElementById("badge").style.opacity = 1;
+        document.getElementById("badge").style.transform = "rotateY(0deg)";
+        document.getElementById("badge").innerHTML += Math.floor(score);
+        document.getElementById("mainBody").hidden = true;
+
+        if (score < 0) {
+            document.getElementById("badgeimg").src = "images/badge/7-hipstercrite.png";
+        } else if (score < 10) {
+            document.getElementById("badgeimg").src = "images/badge/0-none.png";
+        } else if (score < 20) {
+            document.getElementById("badgeimg").src = "images/badge/1-star.png";
+        } else if (score < 30) {
+            document.getElementById("badgeimg").src = "images/badge/2-star.png";
+        } else if (score < 40) {
+            document.getElementById("badgeimg").src = "images/badge/3-star.png";
+        } else if (score < 50) {
+            document.getElementById("badgeimg").src = "images/badge/4-hipster.png";
+        } else if (score < 60) {
+            document.getElementById("badgeimg").src = "images/badge/5-hipster.png";
+        } else {
+            document.getElementById("badgeimg").src = "images/badge/6-hipster.png";
+        }
+    }, 1000);
+    console.log(score);
 }
