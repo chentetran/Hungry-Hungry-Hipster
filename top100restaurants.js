@@ -1,3 +1,5 @@
+//SOURCE: http://nrn.com/us-top-100/top-100-chains-us-sales
+
 //The following site was used to convert the list from CSV to JSON:
 //http://www.convertcsv.com/csv-to-json.htm
 
