@@ -2,8 +2,6 @@
 //dummy scores 
 var name = "Nathan";
 var scores = [32, 22, 20, 16, 11, -2, -10, -9, 4, 0];
-var friendName = "Vincent";
-var friendScores = [42, 38, 35, 26, 2, 0];
 var friends = [{name: "Vincent", scores: [42, 38, 35, 26, 2, 0]},
 				{name: "Emily", scores: [55, 21, 29, 12, 11, 10, 4, 3, 2, 1, 0]},
 				{name: "Liam", scores: [41, 22, 12, 2, 0]},
