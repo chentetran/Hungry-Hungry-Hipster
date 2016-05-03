@@ -7,7 +7,9 @@ var friendScores = [42, 38, 35, 26, 2, 0];
 var friends = [{name: "Vincent", scores: [42, 38, 35, 26, 2, 0]},
 				{name: "Emily", scores: [55, 21, 29, 12, 11, 10, 4, 3, 2, 1, 0]},
 				{name: "Liam", scores: [41, 22, 12, 2, 0]},
-				{name: "Daniel", scores: [52, 38, 35, 26, 2, 0]}];
+				{name: "Daniel", scores: [52, 38, 35, 26, 2, 0]},
+				{name: "Drama the Llama", scores: [9, 0]}
+				];
 
 //uses google charts (in trends.html)
 function loadCharts(){
@@ -48,7 +50,7 @@ function drawIndividualChart() {
 
 //draws a chart comparing the user's points over previous checkins to that of one of their friends
 function drawComparativeChart() {
-	var formattedData = [['Checkin', name, friendName]];
+	var formattedData = [['Checkin', name, friends[0]["name"]]];
 
 	//the earliest value displayed is 10 at most. If neither the user nor the user's friend
 	//have 10 logins, it displayes the number of logins of whichever has the most
@@ -58,10 +60,10 @@ function drawComparativeChart() {
 			earliest = scores.length;
 	}
 	else if(friendScores.length < 10)
-		earliest = friendScores.length;
+		earliest = friends[0]["scores"].length;
 	
 	for(var i = earliest; i >= 0; i--){
-		var row = [earliest - i, scores[i], friendScores[i]];
+		var row = [earliest - i, scores[i], friends[0]["scores"][i]];
 		formattedData.push(row);
 	}
 
