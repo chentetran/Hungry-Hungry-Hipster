@@ -22,10 +22,9 @@ function loadCharts(){
 function drawIndividualChart() {
 	var formattedData = [['Checkin', name]];
 
-	//the earliest value displayed is 10 at most. If neither the user nor the user's friend
-	//have 10 logins, it displayes the number of logins of whichever has the most
+	//the chart displays at most 10 checkins
 	var earliest = 10;
-	if(scores.length > friendScores.length){
+	if(scores.length < 10){
 		earliest = scores.length;
 	}
 	
@@ -53,11 +52,11 @@ function drawComparativeChart() {
 	//the earliest value displayed is 10 at most. If neither the user nor the user's friend
 	//have 10 logins, it displayes the number of logins of whichever has the most
 	var earliest = 10;
-	if(scores.length > friendScores.length){
+	if(scores.length > friends[0]["scores"].length){
 		if(scores.length < 10)
 			earliest = scores.length;
 	}
-	else if(friendScores.length < 10)
+	else if(friends[0]["scores"].length < 10)
 		earliest = friends[0]["scores"].length;
 	
 	for(var i = earliest; i >= 0; i--){
