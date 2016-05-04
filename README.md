@@ -1,5 +1,8 @@
 Project title: Hungry Hungry Hipster
 
+********** All code is located in our Heroku (hungry-hungry-hipster) **********
+************ Please see https://hungry-hungry-hipster.herokuapp.com ***********
+
 Problem statement (i.e., what is the problem?)
 It’s easy for people to fall into a rut of visiting the same well-established
 places for food over and over again. People are afraid of stepping out of their
