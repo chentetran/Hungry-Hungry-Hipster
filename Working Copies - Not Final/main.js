@@ -22,17 +22,15 @@ var max_radius = 1000;
 function initialize() {
     document.getElementById("loadingindicator").style.opacity = 1;
     document.getElementById("namediv").style.opacity = 1;
-    // document.getElementById("badge").hidden = true;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-                // myLocation = position.coords;
-                
-                latitude = position.coords.latitude;
-                longitude = position.coords.longitude;
-                talkToYelp();
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            talkToYelp();
         });
-    } else {
-            console.log("Geolocation not supported in this browser.\n");
+    } 
+    else {
+        console.log("Geolocation not supported in this browser.\n");
     }
 }
 
@@ -60,30 +58,34 @@ function talkToYelp() {
     console.log(JSON.stringify(parameters));
 
     var message = {
-        // 'action' : 'http://hungry-hungry-hipster.herokuapp.com/getRestaurants',
-        'action' : 'getRestaurants',
-        'method' : 'GET',
-        'parameters' : parameters
+        'action': 'getRestaurants',
+        'method': 'GET',
+        'parameters': parameters
     };
 
-    // console.log(JSON.stringify(parameters)); // debug output
-
-    // OAuth.setTimestampAndNonce(message);
-    // OAuth.SignatureMethod.sign(message, accessor);
     var parameterMap = OAuth.getParameterMap(message.parameters);
 
-    $.ajaxSetup({'cache':true})
+    $.ajaxSetup({
+        'cache': true
+    })
     $.ajax({
-        'url' : message.action,
-        'data' : parameterMap,
+        'url': message.action,
+        'data': parameterMap,
         // 'dataType' : 'jsonp',
         // 'jsonpCallback' : 'cb',
-        'success' : function(data, textStats, XMLHttpRequest) {
-            console.log(data); // debug output
+        'success': function(data, textStats, XMLHttpRequest) {
             var places = data;
             var averageReviews = 0;
             var i = 0;
             for (i in places) {
+                for (var j = Number(i) + 1; j < places.length; j++) {
+                    if (j == places.length) { //when i is on the last element of array, nothing to compare
+                        break;
+                    }
+                    if (places[i].id == places[j].id) {
+                        places.splice(j, 1);
+                    }
+                }
                 if (places[i].distance <= max_radius)
                     averageReviews += places[i].review_count;
 
@@ -94,33 +96,35 @@ function talkToYelp() {
 
             document.getElementById("loadingindicator").style.opacity = 0;
             document.getElementById("mainBody").style.opacity = 1;
-            setTimeout(function(){ document.getElementById("loadingindicator").hidden = true; }, 1000);
+            setTimeout(function() {
+                document.getElementById("loadingindicator").hidden = true;
+            }, 1000);
         },
     });
 }
 
 // adds a button to the HTML page
 function generateButton(i, places) {
-        if (i < 5) {
-            var brTag = document.createElement('br');
-            var button = document.createElement("BUTTON");
-            button.className = "btn btn-lg";
-            button.style.position = 'static';
-            var name = places[i].name;
-            button.appendChild(document.createTextNode(places[i].name));
-            button.onclick = function() {
-                calculateScore(algorithm(places, places[i]));
-            };
-            document.getElementById("mainBody").appendChild(button);
-            document.getElementById("mainBody").appendChild(brTag);
-        }
+    if (i < 5) {
+        var brTag = document.createElement('br');
+        var button = document.createElement("BUTTON");
+        button.className = "btn btn-lg";
+        button.style.position = 'static';
+        var name = places[i].name;
+        button.appendChild(document.createTextNode(places[i].name));
+        button.onclick = function() {
+            calculateScore(algorithm(places, places[i]));
+        };
+        document.getElementById("mainBody").appendChild(button);
+        document.getElementById("mainBody").appendChild(brTag);
+    }
 }
 
 
 function calculateScore(score) {
     document.getElementById("mainBody").style.opacity = 0;
     document.getElementById("badge").hidden = false;
-    setTimeout(function(){
+    setTimeout(function() {
         document.getElementById("badge").style.opacity = 1;
         document.getElementById("badge").style.transform = "rotateY(0deg)";
         document.getElementById("badge").innerHTML += Math.floor(score);
@@ -143,6 +147,13 @@ function calculateScore(score) {
         } else {
             document.getElementById("badgeimg").src = "images/badge/6-hipster.png";
         }
+
+        $.post("sendScore", {
+                login: "1115913841762650", // REPLACE WITH ACTUAL FB LOGIN
+                score: score
+            },
+            function(data, status) {});
+
     }, 1000);
     console.log(score);
 }
