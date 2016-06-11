@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hungry Hungry Hipster</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="loginpage.js"></script>
+</head>
+
+<body onload="initialize();">
+    <div id="namediv" class="fading">
+        <h1>Hungry Hungry Hipster</h1>
+        <form method="GET" action="https://hungry-hungry-hipster.herokuapp.com/auth/facebook">
+            <button name="login" id="fb_login_button" class="btn">LOGIN</button>
+        </form>
+    </div>
+</body>
+</html>
